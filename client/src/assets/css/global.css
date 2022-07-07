@@ -1,0 +1,247 @@
+/* GOOGLE FONTS */
+
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cairo&family=IBM+Plex+Sans+Hebrew:wght@500&family=Open+Sans&display=swap');/* CUSTOM PROPERTIES */
+
+/*
+  The :root selector matches the document's root element.
+  In HTML, the root element is always html. By convention,
+  custom properties are always defined in :root (not in html).
+*/
+:root {
+  /* fonts for logo */
+  --title-font-family: "Abril Fatface", serif;
+
+  /* fonts for welcome msg and other text except book title and author*/
+  --default-font-family: "Cairo", sans-serif;
+
+  /* 
+    16px is the default font size set by browsers in the html tag.
+    This should never be changed so that vision-impaired users can override it.
+    Therefore, 1rem (root em) is the width of an em-dash at 16px.
+    If you want a different default size for your site, change it in the body tag.
+    For example, if you want 20px, then set the size to 20/16 = 1.25rem.
+  */
+  --default-font-size: 1rem;
+  --default-text-color: black;
+
+  /* this is nav background, hamburger drop down bg, and login border color */
+  --neutral-color: #9E9A9A;
+  --primary-color: #ffc300;
+  --primary-color-dark:rgb(209, 157, 27);
+  
+  /* main, header, and footer bg color */
+  --primary-background-color: whitesmoke;
+  
+  /* book boxes bg */
+  --secondary-background-color: white;
+
+  /* read now btn bg */
+  --overlay-background: rgba(0, 0, 0, 0.62);
+}
+
+/* RESET */
+/* set all margins to 0 to avoid top and bottom margins collapse */
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+/* For large text sizes, decrease line height. */
+h1,
+h2,
+h3 {
+  line-height: 1;
+}
+
+/* For small text sizes, increase line height. */
+p {
+  line-height: 1.5;
+}
+
+/* Get rid of styling (numbers, bullets, and spacing) for lists. */
+ol,
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Make The width and height properties include the content, padding, 
+  and border, but do not include the margin 
+*/
+* {
+  box-sizing: border-box;
+}
+
+/*
+  This rule ensures that all images stretch to fit the width
+  of the parent element, and all images start on a new line.
+  A height of auto will ensure the aspect ratio is preserved.
+*/
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*
+  In general, font properties of elements are inherited from
+  the parent element, and layout properties of elements are NOT inherited
+  from the parent element. An exception to this convention involves elements
+  that are associated with forms (like button and input). This rule fixes
+  that oversight in the CSS specification, and ensures that form elements
+  also inherit font properties from their parent element.
+
+  For details, see https://www.youtube.com/watch?v=qKiz9gdJdr8&t=49s.
+*/
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+/* UTILITY CLASSES */
+/*
+  When you get rid of margins, everything is crammed together. For example,
+  paragraphs will have no space between them, which is NOT good design.
+  The following utility class gives a top margin of 1.25rem (20px)
+  to all children inside a parent with class .flow-content,
+  EXCEPT for the first child, which will NOT get a margin.
+  That's because "elem + elem" means that the rule should be applied
+  to the first elem only when it is followed by another elem.
+*/
+.flow-content > * + * {
+  margin-top: 1rem;
+}
+
+/*
+  Giving various sections of your page this utility class
+  will ensure a nice padding around the contents.
+*/
+.container {
+  padding: 0.5rem 1rem;
+  align-items:center;
+}
+
+/*
+  Sometimes it's nice to have a section where the foreground
+  and background colors are (more-or-less) flipped for contrast.
+  This utility class does that.
+*/
+.dark-background {
+  background-color: var(--neutral-color);
+  color: whitesmoke;
+}
+
+/* LAYOUT */
+/* These global font properties with be inherited by child elements. */
+body {
+  background: var(--primary-background-color);
+  color: var(--default-text-color);
+  font-family: var(--default-font-family);
+  font-size: var(--default-font-size);
+  margin: 0 auto;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* BUTTONS */
+/*
+  These rules gives simplistic styles for buttons inside and outside of forms.
+  At a minimum, you might have class .primary-button and .secondary-button.
+*/
+
+.button,
+.button:visited {
+  display: inline-block;
+  background: var(--primary-color);
+  color: black;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+.button:hover,
+.button:active {
+  background: var(--primary-color);
+  color: black;
+  cursor: pointer;
+}
+
+.primary-button{
+  background-color: var(--primary-color);
+  border: solid var(--primary-color);
+  border-radius: 20px;
+  padding: 0;
+  width: 150px;
+  margin-top: -3rem;
+  align-self: flex-end;
+}
+
+.primary-button:hover,
+.primary-button:active{
+  cursor: pointer;
+  background: var(--secondary-background-color);
+  border: solid var(--primary-color);
+}
+
+.secondary-button {
+  box-sizing: border-box;
+  padding: 1px 15px;
+  background: var(--secondary-background-color);
+  border: 2px solid var(--neutral-color);
+  border-radius: 40px;
+  cursor: pointer;
+  height: 30pt;
+}
+
+.secondary-button:hover,
+.secondary-button:active {
+  background: var(--primary-color);
+  border: 2px solid;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.icon-only-button{
+  padding: 1em;
+  background: var(--primary-background-color);
+  border: var(--primary-background-color);
+  cursor: pointer;
+}
+
+.icon-only-button:hover,
+.icon-only-button:active {
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.overlay-button {
+  background-color: var(--overlay-background);
+  color: var(--secondary-background-color);
+  width: 100pt;
+  margin-top: -8.4rem;
+  padding:0.1rem;
+  transform: translateX(2.5em);
+  text-align: center;
+  border-radius: 20px;
+}
+
+.overlay-button:hover{
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--default-font-family);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* LINKS */
+a,
+a:visited {
+  color: white;
+  text-decoration: none;
+}
