@@ -1,8 +1,10 @@
+const apiPort = location.protocol === "https:" ? ":8443" : ":8080";
+
 const apiUrl =
   location.protocol +
   "//" +
   location.hostname +
-  ":8080" +
+  apiPort +
   process.env.BASE_URL +
   "api";
 
