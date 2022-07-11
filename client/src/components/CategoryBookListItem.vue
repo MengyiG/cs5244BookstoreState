@@ -34,7 +34,6 @@ export default {
     bookImageFileName: function (book) {
       let name = book.title;
       name = name.replace(/[.,/#!$%^&*;:{}=\-_`~'()]/g, "");
-      console.log(name);
       return `${name}.jpeg`;
     },
   },

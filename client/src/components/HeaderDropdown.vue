@@ -19,7 +19,7 @@
                 <ul class="onclick-menu-content">
                   <template v-for="category in $store.state.categories">
                     <li
-                      v-if="category.name === $route.params.name"
+                      v-if="category.name === $store.state.selectedCategoryName"
                       :key="category.categoryId"
                       class="button selected-category-button"
                     >
