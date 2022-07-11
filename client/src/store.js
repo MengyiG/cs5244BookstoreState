@@ -15,8 +15,8 @@ export default new Vuex.Store({
     SET_CATEGORIES(state, newCategories) {
       state.categories = newCategories;
     },
-    SET_CATEGORY(state, newName) {
-      state.selectedCategoryName = newName;
+    SET_CATEGORY(state, currentName) {
+      state.selectedCategoryName = currentName;
     },
     SET_SELECTED_CATEGORY_BOOKS(state, newBooks) {
       state.selectedCategoryBooks = newBooks;

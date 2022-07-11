@@ -57,7 +57,6 @@ export default {
   name: "HeaderDropdownMenu",
   data: function () {
     return {
-      categories: [],
       mainMenuOpen: false,
     };
   },

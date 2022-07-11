@@ -1,8 +1,7 @@
 <template>
   <div class="category-book-list">
     <ul>
-      <!--      <category-book-list-item :book="books[0]"></category-book-list-item>-->
-      <template v-for="book in books">
+      <template v-for="book in $store.state.selectedCategoryBooks">
         <li :key="book.bookId">
           <category-book-list-item :book="book"></category-book-list-item>
         </li>
@@ -16,12 +15,6 @@ import CategoryBookListItem from "./CategoryBookListItem";
 
 export default {
   name: "CategoryBookList",
-  props: {
-    books: {
-      type: Array,
-      required: true,
-    },
-  },
   components: {
     CategoryBookListItem,
   },
