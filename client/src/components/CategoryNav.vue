@@ -1,7 +1,7 @@
 <template>
   <nav class="category-nav">
     <ul class="category-buttons">
-      <template v-for="category in categories">
+      <template v-for="category in $store.state.categories">
         <li
           v-if="category.name === $route.params.name"
           :key="category.categoryId"
@@ -26,38 +26,8 @@
 </template>
 
 <script>
-import ApiService from "@/services/ApiService";
 export default {
   name: "CategoryNav",
-  data: function () {
-    return {
-      //create a categories array to hold the fetched categories
-      categories: [],
-    };
-  },
-  created: function () {
-    console.log("Begin fetchCategories...");
-    this.fetchCategories();
-    console.log("End fetchCategories...");
-  },
-  methods: {
-    fetchCategories() {
-      //this refers to the component
-      const vm = this;
-      ApiService.fetchCategories()
-        .then((data) => {
-          console.log("Category: ", data);
-          //if we use this instead of vm
-          //we refer to the object that the function is run on
-          //but we need to refer to the component
-          //assign it to the categories component
-          vm.categories = data;
-        })
-        .catch((reason) => {
-          console.log("Error: " + reason);
-        });
-    },
-  },
 };
 </script>
 

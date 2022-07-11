@@ -8,7 +8,7 @@ Vue.config.productionTip = false;
 
 new Vue({
   router,
-  store,
+  store, //every component could reference the store
   render: function (h) {
     return h(App);
   },

@@ -17,7 +17,7 @@
               <div class="onclick-menu">
                 Categories
                 <ul class="onclick-menu-content">
-                  <template v-for="category in categories">
+                  <template v-for="category in $store.state.categories">
                     <li
                       v-if="category.name === $route.params.name"
                       :key="category.categoryId"
@@ -53,8 +53,6 @@
 </template>
 
 <script>
-import ApiService from "@/services/ApiService";
-
 export default {
   name: "HeaderDropdownMenu",
   data: function () {
@@ -62,27 +60,6 @@ export default {
       categories: [],
       mainMenuOpen: false,
     };
-  },
-  created: function () {
-    console.log("Hamburger menu begins fetchCategories...");
-    this.fetchCategories();
-    console.log("End fetchCategories...");
-  },
-  methods: {
-    fetchCategories() {
-      const vm = this;
-      ApiService.fetchCategories()
-        .then((data) => {
-          console.log("Category: ", data);
-          vm.categories = data;
-        })
-        .catch((reason) => {
-          console.log("Error: " + reason);
-        });
-    },
-    toggleMainMenu() {
-      this.mainMenuOpen = !this.mainMenuOpen;
-    },
   },
 };
 </script>
