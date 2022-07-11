@@ -38,11 +38,6 @@ export default {
       return `${name}.jpeg`;
     },
   },
-  // data: function () {
-  //   return {
-  //     message: "Book title: " + title,
-  //   };
-  // },
 };
 </script>
 <style scoped>

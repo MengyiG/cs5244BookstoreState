@@ -41,7 +41,7 @@ export default new Vuex.Store({
     fetchSelectedCategoryBooks(context) {
       ApiService.fetchSelectedCategoryBooks(context.state.selectedCategoryName)
         .then((selectedCategoryBooks) => {
-          console.log("Categories: ", selectedCategoryBooks);
+          console.log("SelectedCategoryBook: ", selectedCategoryBooks);
           context.commit("SET_SELECTED_CATEGORY_BOOKS", selectedCategoryBooks);
         })
         .catch((reason) => {
