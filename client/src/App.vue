@@ -19,6 +19,7 @@ export default {
     AppFooter,
   },
   created: function () {
+    //triggers the actions in Vuex store
     this.$store.dispatch("fetchCategories");
   },
 };

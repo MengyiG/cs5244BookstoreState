@@ -15,7 +15,7 @@
     </div>
     <div class="book-author">{{ book.author }}</div>
     <div class="book-price">${{ (book.price / 100).toFixed(2) }}</div>
-    <button class="primary-button">
+    <button class="primary-button" @click="addToCart(book)">
       <i class="fa-solid fa-cart-plus"></i>&nbsp; Add to Cart
     </button>
   </li>
@@ -35,6 +35,9 @@ export default {
       let name = book.title;
       name = name.replace(/[.,/#!$%^&*;:{}=\-_`~'()]/g, "");
       return `${name}.jpeg`;
+    },
+    addToCart: function (book) {
+      this.$store.dispatch("addToCart", book);
     },
   },
 };

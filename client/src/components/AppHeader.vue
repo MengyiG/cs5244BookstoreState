@@ -40,10 +40,9 @@
 
       <div class="cart-and-num">
         <div class="cart-icon icon-only-button">
-          <i class="fa-solid fa-cart-shopping fa-xl"></i
-          ><span>&nbsp;&nbsp;0</span>
+          <i class="fa-solid fa-cart-shopping fa-xl"></i>
+          <span> {{ $store.state.cart.numberOfItems }}</span>
         </div>
-        <!--        <div class="cart-count">0</div>-->
       </div>
       <div></div>
       <header-dropdown-menu></header-dropdown-menu>

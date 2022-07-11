@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import ApiService from "@/services/ApiService";
+import { ShoppingCart } from "@/models/ShoppingCart";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -8,6 +9,7 @@ export default new Vuex.Store({
     categories: [],
     selectedCategoryName: "",
     selectedCategoryBooks: [],
+    cart: new ShoppingCart(),
   },
   mutations: {
     //capturing the synchronous code that updates the state
@@ -15,11 +17,14 @@ export default new Vuex.Store({
     SET_CATEGORIES(state, newCategories) {
       state.categories = newCategories;
     },
-    SET_CATEGORY(state, newName) {
-      state.selectedCategoryName = newName;
+    SET_CATEGORY(state, currentName) {
+      state.selectedCategoryName = currentName;
     },
     SET_SELECTED_CATEGORY_BOOKS(state, newBooks) {
       state.selectedCategoryBooks = newBooks;
+    },
+    ADD_TO_CART(state, book) {
+      state.cart.addItem(book, 1);
     },
   },
   actions: {
@@ -47,6 +52,9 @@ export default new Vuex.Store({
         .catch((reason) => {
           console.log("Error: " + reason);
         });
+    },
+    addToCart(context, book) {
+      context.commit("ADD_TO_CART", book);
     },
   },
 });
