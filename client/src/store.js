@@ -15,6 +15,12 @@ export default new Vuex.Store({
     SET_CATEGORIES(state, newCategories) {
       state.categories = newCategories;
     },
+    SET_CATEGORY(state, newName) {
+      state.selectedCategoryName = newName;
+    },
+    SET_SELECTED_CATEGORY_BOOKS(state, newBooks) {
+      state.selectedCategoryBooks = newBooks;
+    },
   },
   actions: {
     //capturing any asynchronous network calls, and other business logic
@@ -23,6 +29,20 @@ export default new Vuex.Store({
         .then((categories) => {
           console.log("Categories: ", categories);
           context.commit("SET_CATEGORIES", categories);
+        })
+        .catch((reason) => {
+          console.log("Error: " + reason);
+        });
+    },
+    selectCategory(context, selectedCategoryName) {
+      console.log("The selected category is: ", selectedCategoryName);
+      context.commit("SET_CATEGORY", selectedCategoryName);
+    },
+    fetchSelectedCategoryBooks(context) {
+      ApiService.fetchSelectedCategoryBooks(context.state.selectedCategoryName)
+        .then((selectedCategoryBooks) => {
+          console.log("Categories: ", selectedCategoryBooks);
+          context.commit("SET_SELECTED_CATEGORY_BOOKS", selectedCategoryBooks);
         })
         .catch((reason) => {
           console.log("Error: " + reason);
