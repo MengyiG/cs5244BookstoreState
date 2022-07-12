@@ -41,7 +41,7 @@
       <div class="cart-and-num">
         <div class="cart-icon icon-only-button">
           <i class="fa-solid fa-cart-shopping fa-xl"></i>
-          <span> {{ $store.state.cart.numberOfItems }}</span>
+          <span class="cart-count"> {{ $store.state.cart.numberOfItems }}</span>
         </div>
       </div>
       <div></div>
@@ -143,15 +143,14 @@ a.img-text:visited {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 2rem;
+  margin: 0 4rem;
 }
 
 .cart-count {
   font-weight: bold;
   font-size: large;
-  color: var(--primary-background-color);
-  transform: translateX(-27pt);
-  margin-bottom: 0.7rem;
+  position: fixed;
+  margin-left: 0.5rem;
 }
 
 /*  transform: translateY(-28pt);
