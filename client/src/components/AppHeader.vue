@@ -39,12 +39,13 @@
       </div>
 
       <div class="cart-and-num">
-        <div class="cart-icon icon-only-button">
-          <i class="fa-solid fa-cart-shopping fa-xl"></i>
-          <span class="cart-count"> {{ $store.state.cart.numberOfItems }}</span>
-        </div>
+        <router-link to="/cart">
+          <div class="cart-icon icon-only-button">
+            <i class="fa-solid fa-cart-shopping fa-xl"></i>
+          </div>
+          <div class="cart-count">{{ $store.state.cart.numberOfItems }}</div>
+        </router-link>
       </div>
-      <div></div>
       <header-dropdown-menu></header-dropdown-menu>
     </div>
   </header>
@@ -140,21 +141,29 @@ a.img-text:visited {
 }
 
 .cart-and-num {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin: 0 4rem;
+}
+
+.cart-and-num > a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .cart-count {
   font-weight: bold;
-  font-size: large;
-  position: fixed;
-  margin-left: 0.5rem;
+  background-color: var(--primary-color);
+  color: black;
+  border-radius: 50%;
+  width: 30px;
+  text-align: center;
+  transform: translateY(-8pt);
+  margin-left: -1.4rem;
 }
 
-/*  transform: translateY(-28pt);
-*/
+.cart-and-num > a {
+  color: black;
+}
 
 /*  It is used to define different style rules for different media types. */
 @media (max-width: 600px) {

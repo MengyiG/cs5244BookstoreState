@@ -1,7 +1,7 @@
 <template>
   <footer class="container">
     <div class="copyright">
-      <p>Copyright ©2022 Shu Bookstore</p>
+      <p>Copyright ⓒ 2022 Shu Bookstore</p>
     </div>
     <div class="other-links">
       <router-link to="/">
